@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1224">
+  <title>THARUNYA PARKVERSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="toast" class="toast" role="status"></div>
+
+  <main id="authView" class="auth-shell">
+    <section class="auth-art">
+      <div class="brand brand-large">
+        THARUNYA'S SPACE
+      </div>
+
+      <div class="art-copy">
+        <p class="eyebrow">SMART PARKING. SIMPLIFIED.</p>
+        <h1>Your space.<br><span>Your time.</span></h1>
+        <p class="muted">A smarter way to manage every arrival, every space and every journey.</p>
+      </div>
+
+      <div class="parking-illustration" aria-hidden="true">
+        <div class="road-line"></div>
+        <div class="car-shape"><span></span></div>
+        <div class="slot-glow"></div>
+      </div>
+
+      <p class="auth-foot">A mini project by <strong>Tharunya Sree</strong></p>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+
+        <div class="mobile-brand brand">
+          <span class="brand-mark">T</span>
+          <span>THARUNYA'S <span class="brand-accent">SPACE</span></span>
+        </div>
+
+        <p class="eyebrow">WELCOME TO THARUNYA'S SPACE</p>
+        <h2 id="authTitle">Sign in to your space</h2>
+        <p class="muted" id="authSubtitle">Manage your parking experience with ease.</p>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth-tab="login">Login</button>
+          <button class="auth-tab" data-auth-tab="signup">Create account</button>
+        </div>
+
+        <form id="loginForm" class="form-stack">
+          <label>
+            Email address
+            <input name="email" type="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Password
+            <input name="password" type="password" placeholder="Enter your password" required>
+          </label>
+
+          <button class="btn btn-primary btn-full" type="submit">
+            Sign in <span>→</span>
+          </button>
+        </form>
+
+        <form id="signupForm" class="form-stack hidden">
+          <label>
+            Full name
+            <input name="name" type="text" maxlength="100" placeholder="Your name" required>
+          </label>
+
+          <label>
+            Phone number
+            <input name="phone" type="tel" maxlength="15" placeholder="Your phone number">
+          </label>
+
+          <label>
+            Email address
+            <input name="email" type="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Password
+            <input name="password" type="password" minlength="6"
+              placeholder="At least 6 characters" required>
+          </label>
+
+          <button class="btn btn-primary btn-full" type="submit">
+            Create account <span>→</span>
+          </button>
+        </form>
+
+        <p class="auth-note">
+          New accounts are created with the User role. Admin access is assigned by the database administrator.
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="appView" class="app-shell hidden">
+
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="#">
+        <span class="brand-mark">T</span>
+        <span>THARUNYA'S <span class="brand-accent">SPACE</span></span>
+      </a>
+
+      <div class="side-label">WORKSPACE</div>
+
+      <nav class="nav-list">
+        <button class="nav-link active" data-page="overview">
+          <span class="nav-icon">◫</span> Overview
+        </button>
+
+        <button class="nav-link" data-page="slots">
+          <span class="nav-icon">▦</span> Parking slots
+        </button>
+
+        <button class="nav-link" data-page="vehicles">
+          <span class="nav-icon">⌁</span> Vehicles
+        </button>
+
+        <button class="nav-link" data-page="records">
+          <span class="nav-icon">◷</span> Parking records
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="side-profile">
+          <div class="avatar" id="sideAvatar">T</div>
+          <div>
+            <strong id="sideName">User</strong>
+            <small id="sideRole">USER</small>
+          </div>
+        </div>
+
+        <button class="nav-link logout" id="logoutBtn">
+          <span class="nav-icon">↪</span> Sign out
+        </button>
+      </div>
+
+    </aside>
+
+    <main class="main-area">
+
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+
+        <div>
+          <p class="eyebrow" id="dateLabel">PARKING CONTROL CENTER</p>
+          <h2 id="pageTitle">Overview</h2>
+        </div>
+
+        <div class="topbar-right">
+          <span class="live-dot"></span>
+          <span class="live-label">SYSTEM ONLINE</span>
+          <div class="top-avatar" id="topAvatar">T</div>
+        </div>
+      </header>
+
+      <!-- OVERVIEW PAGE -->
+
+      <section class="page-content" id="page-overview">
+
+        <div class="welcome-banner">
+          <div>
+            <p class="eyebrow">YOUR PARKING, AT A GLANCE</p>
+            <h1>Good to see you, <span id="welcomeName">there</span>.</h1>
+            <p class="muted">Everything is in its right place. Let's keep it moving.</p>
+          </div>
+
+          <div class="banner-orbit">
+            <div class="orbit-ring"></div>
+            <div class="orbit-core">P</div>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+
+          <article class="stat-card">
+            <span class="stat-icon blue">▦</span>
+            <p>Total slots</p>
+            <strong id="statTotal">—</strong>
+            <small>Across the facility</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon green">✓</span>
+            <p>Available now</p>
+            <strong id="statAvailable">—</strong>
+            <small>Ready for arrivals</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon violet">⌁</span>
+            <p>Vehicles</p>
+            <strong id="statVehicles">—</strong>
+            <small>Registered vehicles</small>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-icon pink">₹</span>
+            <p>Total revenue</p>
+            <strong id="statRevenue">—</strong>
+            <small>Completed parking records</small>
+          </article>
+
+        </div>
+
+        <div class="content-grid">
+
+          <section class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">LIVE FACILITY</p>
+                <h3>Slot availability</h3>
+              </div>
+
+              <button class="text-btn" data-goto="slots">View all →</button>
+            </div>
+
+            <div class="mini-slot-grid" id="miniSlotGrid"></div>
+
+            <div class="legend">
+              <span><i class="legend-dot available"></i> Available</span>
+              <span><i class="legend-dot occupied"></i> Occupied</span>
+              <span><i class="legend-dot maintenance"></i> Maintenance</span>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">QUICK ACTION</p>
+                <h3>Make a move</h3>
+              </div>
+            </div>
+
+            <div class="quick-actions">
+
+              <button class="quick-action" data-goto="vehicles">
+                <span class="quick-icon">＋</span>
+                <span>
+                  <strong>Register a vehicle</strong>
+                  <small>Add a vehicle to your profile</small>
+                </span>
+                <b>→</b>
+              </button>
+
+              <button class="quick-action" data-goto="records">
+                <span class="quick-icon purple">↗</span>
+                <span>
+                  <strong>Record vehicle entry</strong>
+                  <small>Assign an available parking slot</small>
+                </span>
+                <b>→</b>
+              </button>
+
+            </div>
+
+            <div class="tip-box">
+              <span>✦</span>
+              <p>
+                <strong>Tharunya's Space tip</strong><br>
+                Choose a slot that matches your vehicle type for a smooth entry.
+              </p>
+            </div>
+
+          </section>
+
+        </div>
+
+        <section class="panel recent-panel">
+
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">LATEST ACTIVITY</p>
+              <h3>Recent parking records</h3>
+            </div>
+
+            <button class="text-btn" data-goto="records">See history →</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>VEHICLE</th>
+                  <th>SLOT</th>
+                  <th>ENTRY TIME</th>
+                  <th>STATUS</th>
+                  <th>FEE</th>
+                </tr>
+              </thead>
+
+              <tbody id="recentRecords">
+                <tr>
+                  <td colspan="5" class="empty-cell">Loading records…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- PARKING SLOTS PAGE -->
+
+      <section class="page-content hidden" id="page-slots">
+
+        <div class="page-intro">
+          <div>
+            <p class="eyebrow">FACILITY LAYOUT</p>
+            <h1>Parking slots</h1>
+            <p class="muted">A clear view of every space in your parking facility.</p>
+          </div>
+
+          <button class="btn btn-primary admin-only" id="addSlotBtn">
+            ＋ Add slot
+          </button>
+        </div>
+
+        <div class="filter-row">
+
+          <div class="filter-pills">
+            <button class="filter-pill active" data-slot-filter="All">All slots</button>
+            <button class="filter-pill" data-slot-filter="Available">Available</button>
+            <button class="filter-pill" data-slot-filter="Occupied">Occupied</button>
+            <button class="filter-pill" data-slot-filter="Maintenance">Maintenance</button>
+          </div>
+
+          <span class="muted" id="slotCount"></span>
+
+        </div>
+
+        <div class="slot-grid" id="slotGrid"></div>
+
+      </section>
+
+      <!-- VEHICLES PAGE -->
+
+      <section class="page-content hidden" id="page-vehicles">
+
+        <div class="page-intro">
+          <div>
+            <p class="eyebrow">YOUR GARAGE</p>
+            <h1>Vehicles</h1>
+            <p class="muted">Keep your vehicle details ready for every visit.</p>
+          </div>
+
+          <button class="btn btn-primary" id="addVehicleBtn">
+            ＋ Register vehicle
+          </button>
+        </div>
+
+        <div class="vehicle-grid" id="vehicleGrid"></div>
+
+      </section>
+
+      <!-- PARKING RECORDS PAGE -->
+
+      <section class="page-content hidden" id="page-records">
+
+        <div class="page-intro">
+          <div>
+            <p class="eyebrow">ENTRY & EXIT CONTROL</p>
+            <h1>Parking records</h1>
+            <p class="muted">Track arrivals, departures and parking charges.</p>
+          </div>
+
+          <button class="btn btn-primary" id="entryBtn">
+            ＋ Record entry
+          </button>
+        </div>
+
+        <section class="panel">
+
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">PARKING ACTIVITY</p>
+              <h3>All records</h3>
+            </div>
+
+            <span class="live-pill"><i></i> Live data</span>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+
+              <thead>
+                <tr>
+                  <th>VEHICLE</th>
+                  <th>OWNER</th>
+                  <th>SLOT</th>
+                  <th>ENTRY</th>
+                  <th>EXIT</th>
+                  <th>FEE</th>
+                  <th>STATUS / ACTION</th>
+                </tr>
+              </thead>
+
+              <tbody id="recordsBody">
+                <tr>
+                  <td colspan="7" class="empty-cell">Loading records…</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+        </section>
+
+      </section>
+
+      <footer class="footer">
+        © <span id="year"></span> Tharunya's Space · Crafted for <strong>Tharunya Sree</strong>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL FORM -->
+
+  <dialog id="formDialog" class="modal">
+
+    <form id="modalForm" method="dialog">
+
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow" id="modalEyebrow">THARUNYA'S SPACE</p>
+          <h3 id="modalTitle">Add details</h3>
+        </div>
+
+        <button type="button" class="close-btn" id="closeModal">×</button>
+      </div>
+
+      <div id="modalFields" class="form-stack"></div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelModal">
+          Cancel
+        </button>
+
+        <button type="submit" class="btn btn-primary" id="modalSubmit">
+          Save details
+        </button>
+      </div>
+
+    </form>
+
+  </dialog>
+
+  <script src="/js/app.js" defer></script>
+
+</body>
+</html>
